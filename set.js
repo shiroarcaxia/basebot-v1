@@ -6,25 +6,25 @@ global.APIs = {
 }
 
 global.APIKeys = {
-	'https://danzzapi.xyz': 'YOUR APIKEY',
+	'92y1a7l0a6': 'YOUR APIKEY',
 }
 
 // Other
-global.apikey = ['YOUR APIKEY'] // Get in: https://danzzapi.xyz
-global.apikeyprem = ['YOUR APIKEY'] // Get in: https://danzzapi.xyz
-global.apikeyvip = ['YOUR APIKEY'] // Get in: https://danzzapi.xyz
-global.namabot = ['Danzz Botz']
-global.namaowner = ['Danzz Coding']
-global.owner = ['6289512545999']
-global.premium = ['6289512545999']
-global.packname = '© Powered By'
-global.author = 'https://danzzapi.xyz'
+global.apikey = ['92y1a7l0a6YO'] // Get in: https://danzzapi.xyz
+global.apikeyprem = ['92y1a7l0a6'] // Get in: https://danzzapi.xyz
+global.apikeyvip = ['92y1a7l0a6'] // Get in: https://danzzapi.xyz
+global.namabot = ['Shiro Bot']
+global.namaowner = ['Shiro']
+global.owner = ['6283838323239']
+global.premium = ['6283838323239']
+global.packname = '© Shiro'
+global.author = 'A♡'
 global.sessionName = 'session'
 global.prefa = ['','!','.','🐦','🐤','🗿']
 global.prefix = ['']
 global.symbol1 = '•'
 global.symbol2 = '>'
-global.wm = '© Danzz Coding'
+global.wm = '© Shiro'
 global.mess = {
     success: 'Success ✓',
     admin: 'Fitur Khusus Admin Group!',
