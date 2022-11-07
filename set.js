@@ -2,23 +2,23 @@ const fs = require('fs')
 const chalk = require('chalk')
 
 global.APIs = {
-	danzz: 'https://danzzapi.xyz',
+	danzz: '92y1a7l0a6',
 }
 
 global.APIKeys = {
-	'https://danzzapi.xyz': 'YOUR APIKEY',
+	'92y1a7l0a6': 'YOUR APIKEY',
 }
 
 // Other
-global.apikey = ['YOUR APIKEY'] // Get in: https://danzzapi.xyz
-global.apikeyprem = ['YOUR APIKEY'] // Get in: https://danzzapi.xyz
-global.apikeyvip = ['YOUR APIKEY'] // Get in: https://danzzapi.xyz
-global.namabot = ['Danzz Botz']
-global.namaowner = ['Danzz Coding']
-global.owner = ['6289512545999']
-global.premium = ['6289512545999']
-global.packname = '© Powered By'
-global.author = 'https://danzzapi.xyz'
+global.apikey = ['92y1a7l0a6'] // Get in: https://danzzapi.xyz
+global.apikeyprem = ['92y1a7l0a6'] // Get in: https://danzzapi.xyz
+global.apikeyvip = ['92y1a7l0a6'] // Get in: https://danzzapi.xyz
+global.namabot = ['Shiro Bot']
+global.namaowner = ['Shiro A']
+global.owner = ['6283838323239']
+global.premium = ['6283838323239']
+global.packname = '© A♡'
+global.author = 'A♡'
 global.sessionName = 'session'
 global.prefa = ['','!','.','🐦','🐤','🗿']
 global.prefix = ['']
