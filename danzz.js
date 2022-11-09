@@ -41,7 +41,7 @@ const timur = timeZone.tz('Asia/Jayapura').format('HH:mm:ss')
 const youtube = ('https://youtube.com/c/DanzzCoding')
 const wa = `0@s.whatsapp.net`
 const owner = global.owner + '@s.whatsapp.net'
-
+const nyoutube = ('danzz') 
 var time = timeZone.tz('Asia/Jakarta')
 .format('HH:mm:ss')
 
@@ -57,6 +57,9 @@ let tebakkalimat = db.data.game.kalimat = []
 let tebaklirik = db.data.game.lirik = []
 let tebaktebakan = db.data.game.tebakan = []
 let vote = db.data.others.vote = []
+
+randommp3 = ['males','buatapa','anjing','apa','araara','wataisi','arigatou','mastah']
+const randomaudio = randommp3[Math.floor(Math.random() * (randommp3.length))]
 
 module.exports = danzz = async (danzz, m, store, chatUpdate) => {
 	try {
@@ -79,6 +82,7 @@ module.exports = danzz = async (danzz, m, store, chatUpdate) => {
         const botNumber = await danzz.decodeJid(danzz.user.id)
         const isOwner = [botNumber, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const myNumber = m.sender == botNumber ? true : false
+        const sender = m.isGroup ? (mek.key.participant ? mek.key.participant : mek.participant) : mek.key.remoteJid
         
         // Group
         const groupMetadata = m.isGroup ? await danzz.groupMetadata(m.chat).catch(e => {}) : ''
@@ -207,7 +211,7 @@ module.exports = danzz = async (danzz, m, store, chatUpdate) => {
         let { text, mentionedJid } = hash
         let messages = await generateWAMessage(m.chat, { text: text, mentions: mentionedJid }, {
             userJid: danzz.user.id,
-            quoted: m.quoted && m.quoted.fakeObj
+            quoted: ftroli.quoted && m.quoted.fakeObj
         })
         messages.key.fromMe = areJidsSameUser(m.sender, danzz.user.id)
         messages.key.id = m.key.id
@@ -497,14 +501,38 @@ Selama ${clockString(new Date - user.afkTime)}`)
             user.afkReason = ''
         }
         
+        const reSize = async(buffer, ukur1, ukur2) => {
+             return new Promise(async(resolve, reject) => {
+             let jimp = require('jimp')
+             var baper = await jimp.read(buffer);
+             var ab = await baper.resize(ukur1, ukur2).getBufferAsync(jimp.MIME_JPEG)
+             resolve(ab)
+             })
+             }
+             
+        const ftroli ={key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "status@broadcast"}, "message": {orderMessage: {itemCount: 99999,status: 200, thumbnail: await reSize(thumb, 100, 100), surface: 200, message: `Danzz Coding`, orderTitle: 'Danzz Coding', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
+		const fdoc = {key : {participant : '0@s.whatsapp.net', ...(m.chat ? { remoteJid: `status@broadcast` } : {}) },message: {documentMessage: {title: `Danzz Coding`,jpegThumbnail: await reSize(thumb, 100, 100)}}}
+		const fvn = {key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {})},message: { "audioMessage": {"mimetype":"audio/ogg; codecs=opus","seconds":359996400,"ptt": "true"}} } 
+		const ftextt = {key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {})}, message: { "extendedTextMessage": {"text":`Danzz Coding`, "title": `${namabot}`, 'jpegThumbnail': await reSize(thumb, 100, 100)}}}
+        const ftoko = {key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? {remoteJid: "status@broadcast" } : {})}, message: { "productMessage": { "product": { "productImage":{ "mimetype": "image/jpeg", "jpegThumbnail": await reSize(thumb, 100, 100)},"title": `Danzz Coding`, "description": `${namabot}`, "currencyCode": "IDR", "priceAmount1000": "1000000000000000000", "retailerId": `Danzz Coding`, "productImageCount": 1}, "businessOwnerJid": `0@s.whatsapp.net`}}} 
+		const fgif = {key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {})},message: {"videoMessage": { "title":`Danzz Coding`, "h": `Hmm`,'seconds': '359996400', 'gifPlayback': 'true', 'caption': `Danzz Coding`, 'jpegThumbnail': await reSize(thumb, 100, 100)}}}
+		const fgclink = {key: {participant: "0@s.whatsapp.net","remoteJid": "0@s.whatsapp.net"},"message": {"groupInviteMessage": {"groupJid": "6288213840883-1616169743@g.us","inviteCode": "m","groupName": `Danzz Coding`, "caption": `Danzz Coding`, 'jpegThumbnail': await reSize(thumb, 100, 100)}}}
+		const fvideo = {key: { fromMe: false,participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {}) },message: { "videoMessage": { "title":`Danzz Coding`, "h": `Hmm`,'seconds': '359996400', 'caption': `Danzz Coding`, 'jpegThumbnail': await reSize(thumb, 100, 100)}}}
+		const floc = {key : {participant : '0@s.whatsapp.net', ...(m.chat ? { remoteJid: `status@broadcast` } : {}) },message: {locationMessage: {name: `Danzz Coding`,jpegThumbnail: await reSize(thumb, 100, 100)}}}
+		const floc2 = {key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {}) }, message: { "liveLocationMessage": { "title": `Danzz Coding`,"h": `Hmm`, 'jpegThumbnail': await reSize(thumb, 100, 100)}}}
+		const fkontak = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: { 'contactMessage': { 'displayName': `Danzz Coding`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;ytname,;;;\nFN:ytname\nitem1.TEL;waid=6285875158363:6285875158363\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': await reSize(thumb, 100, 100), thumbnail: await reSize(thumb, 100, 100),sendEphemeral: true}}}
+	    const fakestatus = {key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {})},message: { "imageMessage": {"url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc","mimetype": "image/jpeg","caption": `Danzz Coding`,"fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=","fileLength": "28777","height": 1080,"width": 1079,"mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=","fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=","directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69","mediaKeyTimestamp": "1610993486","jpegThumbnail": await reSize(thumb, 100, 100),"scansSidecar": "1W0XhfaAcDwc7xh1R8lca6Qg/1bB4naFCSngM2LKO2NoP5RI7K+zLw=="}}}
+		 
+        
         // End
 		switch(command) {
 		
 		// Start Cmd                        
             case 'menu': case 'help': case 'm': {
             let me = m.sender
-            let menu = `*Hello ${pushname} 👋, ${sayyingTime}*
-
+            let menu = `
+*Hello ${pushname} 👋, ${sayyingTime}*,`
+let menunya = `
 *INFO USER*
 Name: ${pushname}
 Number: @${me.split('@')[0]}
@@ -604,6 +632,8 @@ ${symbol2} ${prefix}rate [option]
 ${symbol2} ${prefix}siapakahaku
 ${symbol2} ${prefix}siapakahdia
 ${symbol2} ${prefix}cekmasadepan
+${symbol2} ${prefix}kapankah
+${symbol2} ${prefix}dimanakah
 ${symbol2} ${prefix}cekpositifcovid
 ${symbol2} ${prefix}cekgay
 ${symbol2} ${prefix}ceklesby
@@ -612,7 +642,6 @@ ${symbol2} ${prefix}cekcantik
 ${symbol2} ${prefix}cekkaya
 ${symbol2} ${prefix}cekmiskin
 ${symbol2} ${prefix}pantun
-${symbol2} ${prefix}simih
 ${symbol2} ${prefix}halah
 ${symbol2} ${prefix}hilih
 ${symbol2} ${prefix}huluh
@@ -620,7 +649,6 @@ ${symbol2} ${prefix}heleh
 ${symbol2} ${prefix}holoh
 ${symbol2} ${prefix}jadian
 ${symbol2} ${prefix}jodohku
-${symbol2} ${prefix}delttt
 ${symbol2} ${prefix}tictactoe
 ${symbol2} ${prefix}family100
 ${symbol2} ${prefix}tebak [option]
@@ -659,6 +687,8 @@ ${symbol2} ${prefix}dbinary
 ${symbol2} ${prefix}emojimix
 
 *Other*
+${symbol2} ${prefix}anonymous
+${symbol2} ${prefix}menfess [number|from|message]
 ${symbol2} ${prefix}ttsen [text] (text to spech english)
 ${symbol2} ${prefix}ttsid [text] (text to spech indo)
 
@@ -678,12 +708,14 @@ ${symbol2} ${prefix}delete (msg)`
                 let buttonMessage = {
                     image: { url: 'https://telegra.ph/file/6d3a9d6f88c9d5bbb0330.jpg' },
                     caption: `${menu}`,
-                    footer: `${global.wm}`,
+                    footer: `${menunya}\n\n${global.wm}`,
                     buttons: buttons,
                     headerType: 4
                 }
-                danzz.sendMessage(m.chat, buttonMessage, { quoted: m })
+                danzz.sendMessage(m.chat, buttonMessage, { quoted: ftroli })
         }
+        rvn = fs.readFileSync(`./media/audio/${randomaudio}.mp3`)
+		danzz.sendMessage(m.chat, { audio: rvn, mimetype: 'audio/mp4', ptt: true }, { quoted: m })
         break
             
             // Owner
@@ -716,7 +748,7 @@ https://danzzapi.xyz (danzz)`
                     buttons: buttons,
                     headerType: 4
                 }
-                danzz.sendMessage(m.chat, buttonMessage, { quoted: m })
+                danzz.sendMessage(m.chat, buttonMessage, { quoted: ftroli })
         }
         break
         
@@ -787,7 +819,7 @@ Ini`
                     buttons: buttons,
                     headerType: 4
                 }
-                danzz.sendMessage(m.chat, buttonMessage, { quoted: m })
+                danzz.sendMessage(m.chat, buttonMessage, { quoted: ftroli })
         }
         break
            
@@ -812,7 +844,7 @@ let buttons = [
                     buttons: buttons,
                     headerType: 4
                 }
-                danzz.sendMessage(m.chat, buttonMessage, { quoted: m })
+                danzz.sendMessage(m.chat, buttonMessage, { quoted: ftroli })
         }
         break
         
@@ -822,7 +854,7 @@ let buttons = [
          	if (!q) throw `Example : ${prefix + command} title`
          	m.reply(mess.wait)
              let ytplaymp3 = await fetchJson(`https://danzzapi.xyz/api/downloader/ytplaymp3?query=${q}&apikey=${global.apikeyprem}`)
-             danzz.sendMessage(m.chat, { audio: { url: ytplaymp3.result.url }, mimetype: 'audio/mpeg', fileName: `${q}.mp3` }, { quoted: m })
+             danzz.sendMessage(m.chat, { audio: { url: ytplaymp3.result.url }, mimetype: 'audio/mpeg', fileName: `${q}.mp3` }, { quoted: ftroli })
          	}
          break
          
@@ -830,7 +862,7 @@ let buttons = [
          	if (!q) throw `Example : ${prefix + command} title`
          	m.reply(mess.wait)
              let ytplaymp4 = await fetchJson(`https://danzzapi.xyz/api/downloader/ytplaymp4?query=${q}&apikey=${global.apikeyprem}`)
-             danzz.sendMessage(m.chat, { video: { url: ytplaymp4.result.url }, mimetype: 'video/mp4', fileName: `${q}.mp4`, caption: `Done` }, { quoted: m })
+             danzz.sendMessage(m.chat, { video: { url: ytplaymp4.result.url }, mimetype: 'video/mp4', fileName: `${q}.mp4`, caption: `Done` }, { quoted: ftroli })
          	}
          break
          
@@ -838,7 +870,7 @@ let buttons = [
          	if (!url) throw `Example : ${prefix + command} title`
          	m.reply(mess.wait)
              let ytmp3 = await fetchJson(`https://danzzapi.xyz/api/downloader/ytmp4?url=${url}&apikey=${global.apikey}`)
-             danzz.sendMessage(m.chat, { audio: { url: ytmp3.result.url }, mimetype: 'audio/mpeg', caption: `Done` }, { quoted: m })
+             danzz.sendMessage(m.chat, { audio: { url: ytmp3.result.url }, mimetype: 'audio/mpeg', caption: `Done` }, { quoted: ftroli })
          	}
          break
          
@@ -846,7 +878,7 @@ let buttons = [
          	if (!url) throw `Example : ${prefix + command} title`
          	m.reply(mess.wait)
              let ytmp4 = await fetchJson(`https://danzzapi.xyz/api/downloader/ytmp4?url=${url}&apikey=${global.apikey}`)
-             danzz.sendMessage(m.chat, { video: { url: ytmp4.result.url }, mimetype: 'video/mp4', caption: `Title: ${ytmp4.result.title}` }, { quoted: m })
+             danzz.sendMessage(m.chat, { video: { url: ytmp4.result.url }, mimetype: 'video/mp4', caption: `Title: ${ytmp4.result.title}` }, { quoted: ftroli })
          	}
          break
          
@@ -854,7 +886,7 @@ let buttons = [
          	if (!url) throw `Example : ${prefix + command} url`
          	m.reply(mess.wait)
              let mediafire = await fetchJson(`https://danzzapi.xyz/api/downloader/mediafire?url=${url}&apikey=${global.apikeyprem}`)
-             danzz.sendMessage(m.chat, { document: { url: mediafire.result.url }, mimetype: 'document/zip', fileName: `${mediafire.result.title}` }, { quoted: m })
+             danzz.sendMessage(m.chat, { document: { url: mediafire.result.url }, mimetype: 'document/zip', fileName: `${mediafire.result.title}` }, { quoted: ftroli })
          	}
          break
          
@@ -862,7 +894,7 @@ let buttons = [
          	if (!url) throw `Example : ${prefix + command} url`
          	m.reply(mess.wait)
              let ttmp3 = await fetchJson(`https://danzzapi.xyz/api/downloader/ttmp3?url=${url}&apikey=${global.apikey}`)
-             danzz.sendMessage(m.chat, { audio: { url: ttmp3.result.audio }, mimetype: 'audio/mpeg', fileName: `${url}.mp3` }, { quoted: m })
+             danzz.sendMessage(m.chat, { audio: { url: ttmp3.result.audio }, mimetype: 'audio/mpeg', fileName: `${url}.mp3` }, { quoted: ftroli })
          	}
          break
          
@@ -870,7 +902,7 @@ let buttons = [
          	if (!url) throw `Example : ${prefix + command} url`
          	m.reply(mess.wait)
              let ttmp4 = await fetchJson(`https://danzzapi.xyz/api/downloader/ttmp4?url=${url}&apikey=${global.apikey}`)
-             danzz.sendMessage(m.chat, { video: { url: ttmp4.result.video }, mimetype: 'video/mp4', fileName: `${url}.mp4`, caption: `Done` }, { quoted: m })
+             danzz.sendMessage(m.chat, { video: { url: ttmp4.result.video }, mimetype: 'video/mp4', fileName: `${url}.mp4`, caption: `Done` }, { quoted: ftroli })
          	}
          break
          
@@ -1007,7 +1039,7 @@ let buttons = [
 		case 'pencil': case 'glitch': case'glitch2': case 'glitchtiktok': case 'berry': case 'blackpink': case 'neon': case 'logobear': case '3dchristmas': case 'thunder': case '3dbox': case 'video-game-classic': case 'marvel-studios': case 'ninja-logo': case 'green-horror': case 'magma': case '3d-neon-light': case '3d-orange-juice': case 'chocolate-cake': case '3dcrackedstone': case 'strawberry': {
                 if (!text) throw `Example : ${prefix + command} text`
                 m.reply(mess.wait)
-                danzz.sendMessage(m.chat, { image: { url: `https://danzzapi.xyz/api/textpro/${command}?text=${text}&apikey=${global.apikey}` }, caption: `Done` }, { quoted: m })
+                danzz.sendMessage(m.chat, { image: { url: `https://danzzapi.xyz/api/textpro/${command}?text=${text}&apikey=${global.apikey}` }, caption: `Done` }, { quoted: ftroli })
 	    }
         break
             
@@ -1015,14 +1047,14 @@ let buttons = [
 	    case 'flaming': case 'shadow-sky': case 'metallic': case 'pubg': case 'naruto': case 'under-grass': case 'harry-potter': case 'flower-typography': case 'night-sky': {
                 if (!text) throw 'No Text'
                 m.reply(mess.wait)
-                danzz.sendMessage(m.chat, { image: { url: `https://danzzapi.xyz/api/photooxy/${command}?text=${text}&apikey=${global.apikey}` }, caption: `Done` }, { quoted: m })
+                danzz.sendMessage(m.chat, { image: { url: `https://danzzapi.xyz/api/photooxy/${command}?text=${text}&apikey=${global.apikey}` }, caption: `Done` }, { quoted: ftroli })
             }
             break
             
 		// Maker
 		case 'attp': case 'ttp': {
            if (!text) throw `Example : ${prefix + command} text`
-           await danzz.sendMedia(m.chat, `https://xteam.xyz/${command}?file&text=${text}`, 'danzz', 'coding', m, {asSticker: true})
+           await danzz.sendMedia(m.chat, `https://danzzapi.xyz/api/maker/${command}?text=${text}&apikey=${global.apikey}`, 'danzz', 'coding', m, {asSticker: true})
          }
          break
         
@@ -1030,7 +1062,7 @@ let buttons = [
         case 'rate': {
 			if (!text) throw `Example : ${prefix + command} ganteng`
 			m.reply(mess.wait)
-			let rat = await fetchJson(`https://danzzapi.xyz/api/fun/rate?option=${text}&apikey=${global.apikey}`)
+			let rat = await fetchJson(`https://danzzapi.xyz/api/fun/rate?text=${text}&apikey=${global.apikey}`)
 			let rate = `*Result:* ${rat.result}`
 			m.reply(`${rate}`)
 		}
@@ -1057,6 +1089,24 @@ let buttons = [
 			let siapa = await fetchJson(`https://danzzapi.xyz/api/fun/siapakahdia?apikey=${global.apikey}`)
 			let siapakah = `*Result:* ${siapa.result}`
 			m.reply(`${siapakah}`)
+		}
+		break
+		
+		case 'kapankah': {
+			if (!text) throw `Example : ${prefix + command} saya sukses`
+			m.reply(mess.wait)
+			let kapan = await fetchJson(`https://danzzapi.xyz/api/fun/kapankah?text=${text}&apikey=${global.apikey}`)
+			let kapankah = `*Result:* ${kapan.result}`
+			m.reply(`${kapankah}`)
+		}
+		break
+		
+		case 'dimanakah': {
+			if (!text) throw `Example : ${prefix + command} saya berada`
+			m.reply(mess.wait)
+			let dimana = await fetchJson(`https://danzzapi.xyz/api/fun/dimanakah?text=${text}&apikey=${global.apikey}`)
+			let dimanakah = `*Result:* ${dimana.result}`
+			m.reply(`${dimanakah}`)
 		}
 		break
 		
@@ -1115,13 +1165,6 @@ let buttons = [
 			m.reply(`${pantun}`)
 		}
 		break
-		
-		case 'simih': case 'simisimi': {
-            if (!text) throw `Example : ${prefix + command} text`
-            hm = await fetchJson(api('zenz', '/api/simisimi', { text : text }, 'apikey'))
-            m.reply(hm.result.message)
-            }
-            break
             
         case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
             if (!m.quoted && !text) throw `Kirim/reply text dengan caption ${prefix + command}`
@@ -1278,7 +1321,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                     if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
                     let anu = await fetchJson('https://fatiharridho.github.io/tebaklagu.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
-                    let msg = await danzz.sendMessage(m.chat, { audio: { url: result.link_song }, mimetype: 'audio/mpeg' }, { quoted: m })
+                    let msg = await danzz.sendMessage(m.chat, { audio: { url: result.link_song }, mimetype: 'audio/mpeg' }, { quoted: ftroli })
                     danzz.sendText(m.chat, `Lagu Tersebut Adalah Lagu dari?\n\nArtist : ${result.artist}\nWaktu : 60s`, msg).then(() => {
                     tebaklagu[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
@@ -1361,7 +1404,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
             
             case 'kuismath': case 'math': {
                 if (kuismath.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
-                let { genMath, modes } = require('./src/math')
+                let { genMath, modes } = require('./lib/math')
                 if (!text) throw `Mode: ${Object.keys(modes).join(' | ')}\nContoh penggunaan: ${prefix}math medium`
                 let result = await genMath(text.toLowerCase())
                 danzz.sendText(m.chat, `*Berapa hasil dari: ${result.soal.toLowerCase()}*?\n\nWaktu: ${(result.waktu / 1000).toFixed(2)} detik`, m).then(() => {
@@ -1746,14 +1789,14 @@ let teks = `══✪〘 *👥 Tag All* 〙✪══
                 for (let mem of participants) {
                 teks += `⭔ @${mem.id.split('@')[0]}\n`
                 }
-                danzz.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })
+                danzz.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: ftroli })
                 }
                 break
                 case 'hidetag': {
             if (!m.isGroup) throw mess.group
             if (!isBotAdmins) throw mess.botAdmin
             if (!isAdmins) throw mess.admin
-            danzz.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })
+            danzz.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: ftroli })
             }
             break
                case 'totag': {
@@ -1829,11 +1872,198 @@ let teks = `══✪〘 *👥 Tag All* 〙✪══
 	    break
 	  
 		// Others
+		case 'menfes': case 'menfess': {
+		        if (m.isGroup) throw ('fitur tidak dapat digunakan di grup')
+            	if (!text) throw `Example : ${prefix + command} 6282xxxxx|nama samaran|pesan`
+            var mon = args.join(' ')
+            var m1 = mon.split("|")[0]
+            var m2 = mon.split("|")[1]
+            var m3 = mon.split("|")[2]
+               let kafloc = {key : {participant : '0@s.whatsapp.net', ...(m.chat ? { remoteJid: `status@broadcast` } : {}) },message: {locationMessage: {name: 'Lokasimu', jpegThumbnail: thumb}}}
+               let mq1 = m1 + '@s.whatsapp.net'
+               let kawk = ('Ciee ada yang ngirim pesan nih\n© 𝕰𝖗𝖎𝖈𝕯𝖊𝖛')
+               let ownernya = owner + '@s.whatsapp.net'
+               let me = m.sender
+               let ments = [mq1, ownernya, me]
+               let ivg = `https://telegra.ph/file/11ad4ee7a5b6fd2d5fcfa.jpg`
+               let pjtxt = `Hai kak ada Menfess nih!!\n─────────────\n*${namabot}*\n─────────────\n\nDari : _${m2}_ \nPesan : _${m3}_`
+               let buttons = [
+                { buttonId: 'chatwith2 ${sender.replace("@s.whatsapp.net", "")}', buttonText: { displayText: 'Balas Menfes' }, type:1 },
+                { buttonId: 'menfess', buttonText: { displayText: 'Kirim Menfesmu' }, type: 1 }]
+               let but = [{ buttonId: 'menfess', buttonText: { displayText: 'kirim menfes lg' }, type: 1 }]
+            await danzz.sendMessage(m1 + '@s.whatsapp.net', { caption: pjtxt, location: { jpegThumbnail: await reSize(ivg, 300, 200)}, buttons, footer: `Ciee ada yang ngirim pesan nih\n© Danzz`}, {quoted: ftroli})
+            let akhji = `Pesan Telah Terkirim\nKe @${mq1.split('@')[0]}`
+            await danzz.sendButtonText(m.chat, but, akhji, nyoutube, m, {mentions: ments})
+            }
+            break
+        case 'menfesconfirm': {
+ 				danzz.sendMessage(q, {text: `Sudah Di Confirmasi Nih Menfess nyaa🤭`})
+				 m.reply(`Terimakasih Menfess Telah Diterima.`)
+				}
+               break
+case 'chatwith2': {
+if (m.isGroup) return m.reply('Fitur Tidak Dapat Digunakan Di Dalam Group!')
+danzz.sendMessage(q+'@s.whatsapp.net', {text: `Sudah Di Confirmasi Nih Menfess nyaa ntar lagi dia balas🤭`})
+if(!q) return reply("Masukan nomer target yang mau di chat")
+if (roomA || roomB ) return reply("Kamu masih berada di dalam room anonymous,  ketik keluar untuk keluar dari room anonymous mu")
+let id = + new Date
+const obj = {
+id,
+a: m.sender,
+b: q+'@s.whatsapp.net',
+state: "CHATTING",
+expired: "5m"
+}
+anonChat.push(obj)
+fs.writeFileSync('./database/menfess.json', JSON.stringify(anonChat))
+m.reply(`Silahkan membalas menfess dengan ketik sesuatu maka bot akan otomatis meneruskan chat kamu ke pengirim menfes\nDan ketika pengirim menfes membalas chat kamu bot juga akan meneruskannya\nUntuk berhenti membalas ketik ${prefix}stopmenfes.`)
+}
+break
+case 'stopmenfes': {
+if (m.isGroup) return m.reply('Fitur Tidak Dapat Digunakan Untuk Group!')
+if(roomA && roomA.state == "CHATTING"){
+await danzz.sendMessage(roomA.b, {text:" Yah dia telah meninggalkan chat Menfes"})
+await setTimeout(() => {
+reply("Kamu telah keluar dari Menfes")
+roomA.a = roomA.b
+roomA.b = ""
+roomA.state = "WAITING"
+roomA.expired = Date.now() + toMs("5m")
+fs.writeFileSync('./database/menfess.json', JSON.stringify(anonChat))  
+},1000)
+} else if(roomA && roomA.state == "WAITING"){
+m.reply("Kamu telah keluar dari Menfes")
+anonChat.splice(anonChat.indexOf(roomA, 1)) 
+fs.writeFileSync('./database/menfess.json', JSON.stringify(anonChat))
+} else if(roomB && roomB.state == "CHATTING"){
+await danzz.sendMessage(roomB.a,{text:`Partnermu telah meninggalkan room anonymous`})
+m.reply("Kamu telah keluar dari Menfes dan meninggalkan nya") 
+roomB.b =""
+roomB.state = "WAITING"
+roomB.expired = Date.now() + toMs("5m")
+fs.writeFileSync('./database/menfess.json', JSON.stringify(anonChat))
+} else m.reply(`Kamu sedang tidak ada menfes`)
+}
+break
+			
+		case 'anonymous': {
+                if (m.isGroup) return m.reply('Fitur Tidak Dapat Digunakan Untuk Group!')
+				this.anonymous = this.anonymous ? this.anonymous : {}
+				let buttons = [
+                    { buttonId: 'start', buttonText: { displayText: 'Start' }, type: 1 }
+                ]
+                danzz.sendButtonText(m.chat, buttons, `\`\`\`Hi ${await danzz.getName(m.sender)} Welcome To Anonymous Chat\n\nKlik Button Dibawah Ini Untuk Mencari Partner\`\`\``, danzz.user.name, m)
+            }
+			break
+            case 'keluar': case 'leave': {
+                if (m.isGroup) return m.reply('Fitur Tidak Dapat Digunakan Untuk Group!')
+                this.anonymous = this.anonymous ? this.anonymous : {}
+                let room = Object.values(this.anonymous).find(room => room.check(m.sender))
+                if (!room) {
+                    let buttons = [
+                        { buttonId: 'start', buttonText: { displayText: 'Start' }, type: 1 }
+                    ]
+                    await danzz.sendButtonText(m.chat, buttons, `\`\`\`Kamu Sedang Tidak Berada Di Sesi Anonymous, Tekan Button Untuk Mencari Partner \`\`\``)
+                    throw false
+                }
+                m.reply('Ok')
+                let other = room.other(m.sender)
+                if (other) await danzz.sendText(other, `\`\`\`Partner Telah Meninggalkan Sesi Anonymous\`\`\``, m)
+                delete this.anonymous[room.id]
+                if (command === 'leave') break
+            }
+            case 'mulai': case 'start': {
+                if (m.isGroup) return m.reply('Fitur Tidak Dapat Digunakan Untuk Group!')
+                this.anonymous = this.anonymous ? this.anonymous : {}
+                if (Object.values(this.anonymous).find(room => room.check(m.sender))) {
+                    let buttons = [
+                        { buttonId: 'keluar', buttonText: { displayText: 'Stop' }, type: 1 }
+                    ]
+                    await danzz.sendButtonText(m.chat, buttons, `\`\`\`Kamu Masih Berada Di dalam Sesi Anonymous, Tekan Button Dibawah Ini Untuk Menghentikan Sesi Anonymous Anda\`\`\``, danzz.user.name, m)
+                    throw false
+                }
+                let room = Object.values(this.anonymous).find(room => room.state === 'WAITING' && !room.check(m.sender))
+                if (room) {
+                    let buttons = [
+                        { buttonId: 'next', buttonText: { displayText: 'Skip' }, type: 1 },
+                        { buttonId: 'keluar', buttonText: { displayText: 'Stop' }, type: 1 }
+                    ]
+                    await danzz.sendButtonText(room.a, buttons, `\`\`\`Berhasil Menemukan Partner, sekarang kamu dapat mengirim pesan\`\`\``, danzz.user.name, m)
+                    room.b = m.sender
+                    room.state = 'CHATTING'
+                    await danzz.sendButtonText(room.b, buttons, `\`\`\`Berhasil Menemukan Partner, sekarang kamu dapat mengirim pesan\`\`\``, danzz.user.name, m)
+                } else {
+                    let id = + new Date
+                    this.anonymous[id] = {
+                        id,
+                        a: m.sender,
+                        b: '',
+                        state: 'WAITING',
+                        check: function (who = '') {
+                            return [this.a, this.b].includes(who)
+                        },
+                        other: function (who = '') {
+                            return who === this.a ? this.b : who === this.b ? this.a : ''
+                        },
+                    }
+                    let buttons = [
+                        { buttonId: 'keluar', buttonText: { displayText: 'Stop' }, type: 1 }
+                    ]
+                    await danzz.sendButtonText(m.chat, buttons, `\`\`\`Mohon Tunggu Sedang Mencari Partner\`\`\``, danzz.user.name, m)
+                }
+                break
+            }
+            case 'next': case 'lanjut': {
+                if (m.isGroup) return m.reply('Fitur Tidak Dapat Digunakan Untuk Group!')
+                this.anonymous = this.anonymous ? this.anonymous : {}
+                let romeo = Object.values(this.anonymous).find(room => room.check(m.sender))
+                if (!romeo) {
+                    let buttons = [
+                        { buttonId: 'start', buttonText: { displayText: 'Start' }, type: 1 }
+                    ]
+                    await danzz.sendButtonText(m.chat, buttons, `\`\`\`Kamu Sedang Tidak Berada Di Sesi Anonymous, Tekan Button Untuk Mencari Partner\`\`\``)
+                    throw false
+                }
+                let other = romeo.other(m.sender)
+                if (other) await danzz.sendText(other, `\`\`\`Partner Telah Meninggalkan Sesi Anonymous\`\`\``, m)
+                delete this.anonymous[romeo.id]
+                let room = Object.values(this.anonymous).find(room => room.state === 'WAITING' && !room.check(m.sender))
+                if (room) {
+                    let buttons = [
+                        { buttonId: 'next', buttonText: { displayText: 'Skip' }, type: 1 },
+                        { buttonId: 'keluar', buttonText: { displayText: 'Stop' }, type: 1 }
+                    ]
+                    await danzz.sendButtonText(room.a, buttons, `\`\`\`Berhasil Menemukan Partner, sekarang kamu dapat mengirim pesan\`\`\``, danzz.user.name, m)
+                    room.b = m.sender
+                    room.state = 'CHATTING'
+                    await danzz.sendButtonText(room.b, buttons, `\`\`\`Berhasil Menemukan Partner, sekarang kamu dapat mengirim pesan\`\`\``, danzz.user.name, m)
+                } else {
+                    let id = + new Date
+                    this.anonymous[id] = {
+                        id,
+                        a: m.sender,
+                        b: '',
+                        state: 'WAITING',
+                        check: function (who = '') {
+                            return [this.a, this.b].includes(who)
+                        },
+                        other: function (who = '') {
+                            return who === this.a ? this.b : who === this.b ? this.a : ''
+                        },
+                    }
+                    let buttons = [
+                        { buttonId: 'keluar', buttonText: { displayText: 'Stop' }, type: 1 }
+                    ]
+                    await danzz.sendButtonText(m.chat, buttons, `\`\`\`Mohon Tunggu Sedang Mencari Partner\`\`\``, danzz.user.name, m)
+                }
+                break
+            }
+            
          case 'ttsen': {
          	if (!text) throw `Example : ${prefix + command} text`
          	m.reply(mess.wait)
-             let tts = await fetchJson(`https://danzzapi.xyz/api/tools/tts?text=${text}&lang=en-US&apikey=${global.apikey}`)
-             danzz.sendMessage(m.chat, { audio: { url: tts.result }, mimetype: 'audio/mpeg', fileName: `${text}.mp3` }, { quoted: m })
+             let tts = await fetchJson(`https://danzzapi.xyz/api/tools/tts?text=${text}&lang=id-ID&apikey=${global.apikey}`)
+             danzz.sendMessage(m.chat, { audio: { url: tts.result }, mimetype: 'audio/mp4', ptt: true }, { quoted: m })
          	}
          break
          
@@ -1841,11 +2071,20 @@ let teks = `══✪〘 *👥 Tag All* 〙✪══
          	if (!text) throw `Example : ${prefix + command} text`
          	m.reply(mess.wait)
              let tts = await fetchJson(`https://danzzapi.xyz/api/tools/tts?text=${text}&lang=id-ID&apikey=${global.apikey}`)
-             danzz.sendMessage(m.chat, { audio: { url: tts.result }, mimetype: 'audio/mpeg', fileName: `${text}.mp3` }, { quoted: m })
+             danzz.sendMessage(m.chat, { audio: { url: tts.result }, mimetype: 'audio/mp4', ptt: true }, { quoted: m })
          	}
          break
          
        // Tools
+       case 'get': {
+       	if (!url) throw `Example: ${prefix + command} url`
+       	m.reply(mess.wait)
+       	let gt = await getBuffer(`${url}`)
+       	let gett = `${gt}`
+       	m.reply(`${gett}`)
+       }
+       break
+       
        case 'styletext': {
        	if (!text) throw `Example: ${prefix + command} text`
        	let st = await getBuffer(`https://danzzapi.xyz/api/tools/styletext?text=${text}&apikey=${global.apikeyprem}`)
